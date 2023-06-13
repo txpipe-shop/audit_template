@@ -124,7 +124,8 @@
       ],
       cell()[
         #set align(horizon)
-        Critical severity issues are critical to the security of the project. They are likely to lead to loss of funds or control of the project.
+        Critical issues highlight exploits, bugs, loss of funds, or other vulnerabilities
+        that prevent the dApp from working as intended. These issues have no workaround.
       ],
       cell(fill: major)[
         #set align(horizon + center)
@@ -132,7 +133,10 @@
       ],
       cell()[
         #set align(horizon)
-        Major severity issues are major to the security of the project. They are likely to lead to loss of funds or control of the project.
+        Major issues highlight exploits, bugs, or other vulnerabilities that cause unexpected
+        transaction failures or may be used to trick general users of the dApp. dApps with Major issues
+        may still be functional.
+        
       ],
       cell(fill: minor)[
         #set align(horizon + center)
@@ -140,7 +144,8 @@
       ],
       cell()[
         #set align(horizon)
-        Minor severity issues are minor to the security of the project. They are unlikely to lead to loss of funds or control of the project.
+        Minor issues highlight edge cases where a user can purposefully use the dApp
+        in a non-incentivized way and often lead to a disadvantage for the user.
       ],
       cell(fill: info)[
         #set align(horizon + center)
@@ -148,7 +153,7 @@
       ],
       cell()[
         #set align(horizon)
-        Info severity issues are informational to the security of the project. They are unlikely to lead to loss of funds or control of the project.
+        Info are not issues. These are just pieces of information that are beneficial to the dApp creator. These are not necessarily acted on or have a resolution, they are logged for the completeness of the audit. 
       ],
     )
 
@@ -175,7 +180,7 @@
       ],
       cell()[
         #set align(horizon)
-        Resolved issues have been fixed by the project team.
+        Issues that have been *fixed* by the *project* team.
       ],
       cell(fill: acknowledged)[
         #set align(horizon + center)
@@ -183,7 +188,8 @@
       ],
       cell()[
         #set align(horizon)
-        Acknowledged issues have been acknowledged by the project team.
+        Issues that have been *acknowledged* or *partially fixed* by the *project* team. Projects
+        can decide to not *fix* issues for whatever reason.
       ],
       cell(fill: identified)[
         #set align(horizon + center)
@@ -191,7 +197,8 @@
       ],
       cell()[
         #set align(horizon)
-        Identified issues have been identified by the project team.
+        Issues that have been *identified* by the *audit* team. These
+        are waiting for a response from the *project* team.
       ],
     )
 
