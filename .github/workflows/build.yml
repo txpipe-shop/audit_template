@@ -1,0 +1,51 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    tags: ["v*.*.*"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🧰 Download Typst
+        uses: robinraju/release-downloader@v1.7
+        with:
+          repository: typst/typst
+          tag: v0.4.0
+          fileName: typst-x86_64-apple-darwin.tar.xz
+
+      - name: 🧰 Extract Typst
+        shell: bash
+        run: |
+          sudo mkdir /usr/local/typst
+          sudo tar -xzf typst-x86_64-apple-darwin.tar.xz -C /usr/local/typst/
+          rm -f typst-x86_64-apple-darwin.tar.xz
+          echo "/usr/local/typst/typst-x86_64-apple-darwin" >> $GITHUB_PATH
+
+      - name: 📘 Compile
+        run: typst compile src/*.typ
+
+      - name: 📦 Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: src/*.pdf
+
+      - name: 🚀 Release
+        uses: softprops/action-gh-release@v1
+        if: github.ref_type == 'tag'
+        with:
+          name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          files: "src/*.pdf"
