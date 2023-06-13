@@ -32,7 +32,7 @@ The final state of the files for the purposes of this report is considered to be
 
 #files_audited(
   items: (
-    "XXXX"
+    "XXXX",
   ) 
 )
 
