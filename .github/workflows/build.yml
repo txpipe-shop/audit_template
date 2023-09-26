@@ -22,7 +22,7 @@ jobs:
         uses: robinraju/release-downloader@v1.7
         with:
           repository: typst/typst
-          tag: v0.4.0
+          tag: v0.8.0
           fileName: typst-x86_64-apple-darwin.tar.xz
 
       - name: 🧰 Extract Typst
@@ -34,7 +34,8 @@ jobs:
           echo "/usr/local/typst/typst-x86_64-apple-darwin" >> $GITHUB_PATH
 
       - name: 📘 Compile
-        run: typst compile src/*.typ
+        shell: bash
+        run: ./build.sh
 
       - name: 📦 Upload artifacts
         uses: actions/upload-artifact@v3
