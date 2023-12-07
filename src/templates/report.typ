@@ -29,6 +29,7 @@
 // It takes your content and some metadata and formats it.
 // Go ahead and customize it to your liking!
 #let report(
+  client: "",
   title: "",
   authors: (),
   date: none,
@@ -36,15 +37,15 @@
   body,
 ) = {
   // Set the document's basic properties.
+  let title = client + " - " + title
   set document(author: authors, title: title)
-  set page(fill: rgb("#222222"))
-  set text(font: "Linux Libertine", lang: "en", fill: white)
+  set text(font: "Linux Libertine", lang: "en")
   set heading(numbering: "1.a -")
 
   // Title page.
   // The page can contain a logo if you pass one with `logo: "logo.png"`.
   v(0.6fr)
-  align(right, image("img/txpipe.png", width: 26%))
+  align(right, image("img/txpipe.png", width: 50%))
   v(9.6fr)
 
   text(1.1em, date)
@@ -52,27 +53,25 @@
   text(2em, weight: 700, title)
 
   // Author information.
-  pad(
-    top: 0.7em,
-    right: 20%,
-    grid(
-      columns: (1fr,) * calc.min(3, authors.len()),
-      gutter: 1em,
-      ..authors.map(author => align(start, strong(author))),
-    ),
-  )
+  if authors.len() > 0 {
+    pad(
+      top: 0.7em,
+      right: 20%,
+      grid(
+        columns: (1fr,) * calc.min(3, authors.len()),
+        gutter: 1em,
+        ..authors.map(author => align(start, strong(author))),
+      ),
+    )
+  }
 
   v(2.4fr)
   pagebreak()
   set page(numbering: "1", number-align: center, fill: none)
-  set text(fill: black)
-
 
   // Table of contents.
   outline(depth: 2, indent: true)
   pagebreak()
-
-
 
   // Main body.
   set par(justify: true)
@@ -88,7 +87,7 @@
 
     #v(1em)
     
-    This report is governed by the terms in the agreement between TxPipe (*TXPIPE*) and Ape Society (*CLIENT*). This report cannot be shared, referred to, altered, or relied upon by any third party without TXPIP's written consent. This report does not endorse or disapprove any specific project, team, code, technology, asset or similar. It provides no warranty or guarantee about the quality or nature of the technology analyzed.
+    This report is governed by the terms in the agreement between TxPipe (*TXPIPE*) and #client (*CLIENT*). This report cannot be shared, referred to, altered, or relied upon by any third party without TXPIP's written consent. This report does not endorse or disapprove any specific project, team, code, technology, asset or similar. It provides no warranty or guarantee about the quality or nature of the technology analyzed.
 
     *TXPIPE DISCLAIMS ALL WARRANTIES, EXPRESSED OR IMPLIED*, related to this report, its content, and the related services and products. This report is provided as-is. TxPipe does not take responsibility for any product or service advertised or offered by Client or any third party. *TXPIPE IS NOT RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND CLIENT AND/OR ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES.*
 
@@ -306,7 +305,7 @@
       #v(1em)
 
       #grid(
-        columns: (1fr, 46%, 1fr, 1fr),
+        columns: (1fr, 48%, 1fr, 1fr),
         gutter: 1pt,
         ..finding_titles.map(t => cell(fill: rgb("#E5E5E5"), height: auto)[
           #set align(horizon + center)

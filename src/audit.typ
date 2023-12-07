@@ -1,11 +1,9 @@
 #import "templates/report.typ": *
 
 #show: report.with(
+  client: "XXXXX",
   title: "XXXXX",
   repo: "XXXXX",
-  authors: (
-    "TxPipe Shop",
-  ),
   date: "XXXXX",
 )
 
