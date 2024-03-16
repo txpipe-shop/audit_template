@@ -22,7 +22,7 @@ jobs:
         uses: robinraju/release-downloader@v1.7
         with:
           repository: typst/typst
-          tag: v0.9.0
+          tag: v0.11.0
           fileName: typst-x86_64-apple-darwin.tar.xz
 
       - name: 🧰 Extract Typst
