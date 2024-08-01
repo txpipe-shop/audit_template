@@ -23,7 +23,20 @@
 
 #let tx_link(url, content) = {
   link(url, underline(text(fill: rgb("#007bff"), content)))
-} 
+}
+
+#let create_table = (tuples) => {
+  table(
+    columns: 1,
+    rows: tuples.len(),
+    ..tuples.map(((file, hash)) =>
+      [*Filename*: #text(font:"Suranna", file)
+       #linebreak()
+       *Hash*: #text(font:"Suranna", hash)
+      ]
+      ),
+  )
+}
 
 // The project function defines how your document looks.
 // It takes your content and some metadata and formats it.
@@ -33,6 +46,7 @@
   title: "",
   authors: (),
   date: none,
+  audited_files: (),
   repo: "",
   body,
 ) = {
@@ -77,30 +91,50 @@
   set par(justify: true)
 
   body
-  
+
   [
     = Appendix
 
     #v(1em)
 
-    == Disclaimer
+    == Terms and Conditions of the Commercial Agreement
 
     #v(1em)
-    
-    This report is governed by the terms in the agreement between TxPipe (*TXPIPE*) and #client (*CLIENT*). This report cannot be shared, referred to, altered, or relied upon by any third party without TXPIP's written consent. This report does not endorse or disapprove any specific project, team, code, technology, asset or similar. It provides no warranty or guarantee about the quality or nature of the technology analyzed.
 
-    *TXPIPE DISCLAIMS ALL WARRANTIES, EXPRESSED OR IMPLIED*, related to this report, its content, and the related services and products. This report is provided as-is. TxPipe does not take responsibility for any product or service advertised or offered by Client or any third party. *TXPIPE IS NOT RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND CLIENT AND/OR ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES.*
+    === Confidentiality
 
-    This report should not be used for making investment or involvement decisions with any project, services or assets. This report provides general information and is not a form of financial, investment, tax, legal, regulatory, or other advice.
+    Both parties agree, within a framework of trust, to discretion and confidentiality in handling the business. This report cannot be shared, referred to, altered, or relied upon by any third party without Txpipe LLC, 651 N Broad St, Suite 201, Middletown registered at the county of New Castle, written consent.
 
-    TxPipe created this report as an informational review of the due diligence performed on the Client's smart contract. This report provides no guarantee on the security or operation of the smart contract on deployment or post-deployment. *TXPIPE HAS NO DUTY TO MONITOR CLIENT'S OPERATION OF THE PROJECT AND UPDATE THE REPORT ACCORDINGLY.*
+    The violation of the aforementioned, as stated supra, shall empower TxPipe to pursue all of its rights and claims in accordance with the provisions outlined in Title 6, Subtitle 2, Chapter 20 of the Delaware Code titled "Trade Secrets,", and to also invoke any other applicable law that protects or upholds these rights.
 
-    The information in this report may not cover all vulnerabilities. This report represents an extensive assessment process intended to help increase the quality of the Client's code. However, blockchain technology and cryptographic assets present a high level of ongoing risk, including unknown risks and flaws.
+    Therefore, in the event of any harm inflicted upon the company's reputation or resulting from the misappropriation of trade secrets, the company hereby reserves the right to initiate legal action against the contractor for the actual losses incurred due to misappropriation, as well as for any unjust enrichment resulting from misappropriation that has not been accounted for in the calculation of actual losses.
 
-    TxPipe recommends multiple independent audits, a public bug bounty program, and continuous security auditing and monitoring. Errors in the manual review process are possible, and TxPipe advises seeking multiple independent opinions on critical claims. *TXPIPE BELIEVES EACH COMPANY AND INDIVIDUAL IS RESPONSIBLE FOR THEIR OWN DUE DILIGENCE AND CONTINUOUS SECURITY.*
+    === Service Extension and Details
+
+    *This report does not endorse or disapprove any specific project, team, code, technology, asset or similar. It provides no warranty or guarantee about the quality or nature of the technology/code analyzed.*
+
+    This agreement does not authorize the client #client to make use of the logo, name, or any other unauthorized reference to Txpipe LLC, except upon express authorization from the company.
+
+    TxPipe LLC shall not be liable for any use or damages suffered by the client or third-party agents, nor for any damages caused by them to third parties. The sole purpose of this commercial agreement is the delivery of what has been agreed upon. The company shall be exempt from any matters not expressly covered within the contract, with the client bearing sole responsibility for any uses or damages that may arise.
+
+    Any claims against the company under the aforementioned terms shall be dismissed, and the client may be held accountable for damages to reputation or costs resulting from non-compliance with the aforementioned provisions. *This report provides general information and is not intended to constitute financial, investment, tax, legal, regulatory, or any other form of advice.*
+
+    Any conflict or controversy arising under this commercial agreement or subsequent agreements shall be resolved in good faith between the parties. If such negotiations do not result in a conventional agreement, the parties agree to submit disputes to the courts of Delaware and to the laws of that jurisdiction under the powers conferred by the Delaware Code, TITLE 6, SUBTITLE I, ARTICLE 1, Part 3 § 1-301. and Title 6, SUBTITLE II, chapter 27 §2708.
+
+    === Disclaimer
+
+    The audit constitutes a comprehensive examination and assessment as of the date of report submission. The company expressly disclaims any certification or endorsement regarding the subsequent performance, effectiveness, or efficiency of the contracted entity, post-report delivery, whether resulting from modification, alteration, malfeasance, or negligence by any third party external to the company.
+
+    The company explicitly disclaims any responsibility for reviewing or certifying transactions occurring between the client and third parties, including the purchase or sale of products and services.
+
+    This report is strictly provided for *_informational purposes_* and reflects solely the due diligence conducted on the following files and their corresponding hashes using sha256 algorithm:
+
+    #create_table(audited_files)
+
+    TxPipe advocates for the implementation of multiple independent audits, a publicly accessible bug bounty program, and continuous security auditing and monitoring. Despite the diligent manual review processes, the potential for errors exists. TxPipe strongly advises seeking multiple independent opinions on critical matters. It is the firm belief of TxPipe that every entity and individual is responsible for conducting their own due diligence and maintaining ongoing security measures.
 
     #pagebreak()
-    
+
     == Issue Guide
 
     === Severity
