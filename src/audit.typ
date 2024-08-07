@@ -45,14 +45,22 @@ The final state of the files for the purposes of this report is considered to be
 #v(1em)
 #findings(items: (
   (
-    id: [XXX],
+    id: [XXX],             // first digit corresponds to severity (see below)
     title: [XXXXXXX],
-    severity: "Critical",
-    status: "Resolved",
-    category: "Bug",
+    severity: "Critical",  // Critical (0), Major (1), Minor (2), Info (3)
+    status: "Resolved",    // Resolved, Acknowledged, Identified
+    category: "Bug",       // Bug, Redundancy, Optimization, Robustness, etc.
     commit: "",
-    description: [XXXXXXX],
-    recommendation: [XXXXXXX],
-    resolution: [Resolved in commit `XXXX`],
+    description: [
+      XXXXXXX
+    ],
+    recommendation: [
+      XXXXXXX
+    ],
+    resolution: [
+      Resolved in commit `XXXX`.
+      // Alternatively:
+      // The project team decided not to resolve this ﬁnding.
+    ],
   ),
 ))
