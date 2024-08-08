@@ -29,10 +29,11 @@
 #lorem(50)
 #pagebreak()
 
-=== Files Audited
+=== Audited Files
 #v(1em)
 
-Below is a list of all files audited in this report, any files *not* listed here were *not* audited.
+Below is a list of all audited files in this report.
+Any files *not* listed here were *not* audited.
 The final state of the files for the purposes of this report is considered to be commit `XXXX`.
 
 #files_audited(
