@@ -60,7 +60,9 @@
   // The page can contain a logo if you pass one with `logo: "logo.png"`.
   v(0.6fr)
   align(right, image("img/txpipe.png", width: 50%))
-  v(9.6fr)
+  v(4fr)
+  align(center, text(3em, weight: 700, "Audit Report"))
+  v(5.6fr)
 
   text(1.1em, date)
   v(1.2em, weak: true)
