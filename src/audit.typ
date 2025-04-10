@@ -47,7 +47,9 @@ The final state of the files for the purposes of this report is considered to be
 #findings(items: (
   (
     id: [XXX],             // first digit corresponds to severity (see below)
-    title: [XXXXXXX],
+    title: [XXXXXXX],      // diagnosis: write it as a fact about the 
+                           // current version of the code. Do not write it
+                           // as a recommendation
     severity: "Critical",  // Critical (0), Major (1), Minor (2), Info (3)
     status: "Resolved",    // Resolved, Acknowledged, Identified
     category: "Bug",       // Bug, Redundancy, Optimization, Robustness, etc.
