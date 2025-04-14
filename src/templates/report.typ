@@ -53,7 +53,7 @@
   // Set the document's basic properties.
   let title = client + " - " + title
   set document(author: authors, title: title)
-  set text(font: "Linux Libertine", lang: "en")
+  set text(font: "Libertinus Serif", lang: "en")
   set heading(numbering: "1.a -")
 
   // Title page.
@@ -86,7 +86,7 @@
   set page(numbering: "1", number-align: center, fill: none)
 
   // Table of contents.
-  outline(depth: 2, indent: true)
+  outline(depth: 2, indent: auto)
   pagebreak()
 
   // Main body.
