@@ -38,6 +38,14 @@
   )
 }
 
+// Backmatter configuration to change Appendix numbering to letters
+#let backmatter(content) = {
+	set heading(numbering: "A.1")
+	counter(heading).update(0)
+	state("backmatter").update(true)
+	content
+}
+
 // The project function defines how your document looks.
 // It takes your content and some metadata and formats it.
 // Go ahead and customize it to your liking!
@@ -93,6 +101,8 @@
   set par(justify: true)
 
   body
+
+  show: backmatter
 
   [
     = Appendix
