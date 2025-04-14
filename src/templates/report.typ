@@ -56,8 +56,19 @@
   date: none,
   audited_files: (),
   repo: "",
+  is_draft: true,
   body,
 ) = {
+
+
+  let watermark = if is_draft {
+    [#rotate(-45deg)[#text(fill: rgb(127,127,127,20%), size:20em, "DRAFT")]]
+  } else {
+    []
+  }
+
+  set page(foreground: watermark)
+
   // Set the document's basic properties.
   let title = client + " - " + title
   set document(author: authors, title: title)
