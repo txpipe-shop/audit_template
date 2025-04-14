@@ -30,9 +30,9 @@
     columns: 1,
     rows: tuples.len(),
     ..tuples.map(((file, hash)) =>
-      [*Filename*: #text(font:"Suranna", file)
+      [*Filename*: #text(font:"Ubuntu Mono", file)
        #linebreak()
-       *Hash*: #text(font:"Suranna", hash)
+       *Hash*: #text(font:"Ubuntu Mono", hash)
       ]
       ),
   )

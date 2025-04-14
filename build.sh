@@ -4,5 +4,5 @@
 for file in src/*.typ
 do
     # run the compiler
-    typst compile --format=pdf "$file"
+    typst compile --format=pdf "$file" --font-path src/fonts
 done
