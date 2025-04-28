@@ -67,7 +67,7 @@
     []
   }
 
-  set page(foreground: watermark)
+  set page(background: watermark)
 
   // Set the document's basic properties.
   let title = client + " - " + title
@@ -470,7 +470,7 @@
   ]
 ]
 
-#let tx_out(input, position, inputHeight, styles) = {
+#let tx_out(input, position, inputHeight) = {
   let address = if "address" in input [
     *Address: #h(0.5em) #input.address*
   ] else []
@@ -495,9 +495,9 @@
       ..input.datum.pairs().map(((k,val)) => datum_field(1.2em, k, val))
     )
   ] else []
-  let addressHeight = measure(address, styles).height + if "address" in input { 6pt } else { 0pt }
-  let valueHeight = measure(value, styles).height + if "value" in input { 6pt } else { 0pt }
-  let datumHeight = measure(datum, styles).height + if "datum" in input { 6pt } else { 0pt }
+  let addressHeight = measure(address).height + if "address" in input { 6pt } else { 0pt }
+  let valueHeight = measure(value).height + if "value" in input { 6pt } else { 0pt }
+  let datumHeight = measure(datum).height + if "datum" in input { 6pt } else { 0pt }
   let thisHeight = 32pt + addressHeight + valueHeight + datumHeight
 
   if "dots" in input {
@@ -549,13 +549,13 @@
   existing
 }
 
-#let vanilla_transaction(name, inputs: (), outputs: (), signatures: (), certificates: (), withdraws: (), mint: (:), validRange: none, notes: none) = style(styles => {
+#let vanilla_transaction(name, inputs: (), outputs: (), signatures: (), certificates: (), withdraws: (), mint: (:), validRange: none, notes: none) = context {
   let inputHeightEstimate = inputs.fold(0pt, (sum, input) => sum + tx_out_height_estimate(input))
   let inputHeight = 0em
   let inputs = [
     #let start = (x: -18em, y: 1em)
     #for input in inputs {
-      let tx_out = tx_out(input, start, inputHeight, styles)
+      let tx_out = tx_out(input, start, inputHeight)
 
       tx_out.content
 
@@ -582,7 +582,7 @@
       #let start = (x: 4em, y: 1em)
       #for output in outputs {
 
-        let tx_out = tx_out(output, start, outputHeight, styles)
+        let tx_out = tx_out(output, start, outputHeight)
         tx_out.content
         start = (x: start.x, y: start.y + tx_out.height)
         outputHeight += tx_out.height
@@ -678,15 +678,15 @@
     transaction,
     outputs
   )
-  let size = measure(diagram, styles)
+  let size = measure(diagram)
   block(width: 100%, height: size.height)[
     #set align(center)
     #diagram
     #if notes != none [ *Note*: #notes ]
   ]
-})
+}
 
-#let transaction(name, inputs: (), outputs: (), signatures: (), certificates: (), withdraws: (), validRange: none, notes: none) = style(styles => {
+#let transaction(name, inputs: (), outputs: (), signatures: (), certificates: (), withdraws: (), validRange: none, notes: none) = context {
   let mint = (:)
 
   for input in inputs {
@@ -725,4 +725,4 @@
     , validRange: validRange
     , notes: notes
   )
-})
+}
