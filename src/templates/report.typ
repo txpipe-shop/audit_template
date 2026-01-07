@@ -357,7 +357,7 @@
 
   for finding in items {
     [
-      = #finding.id #finding.title
+      == #finding.id #finding.title
 
       #v(1em)
 
@@ -408,7 +408,7 @@
 
       #v(1em)
 
-      == Description
+      === Description
 
       #v(1em)
 
@@ -416,7 +416,7 @@
 
       #v(1em)
 
-      == Recommendation
+      === Recommendation
 
       #v(1em)
 
@@ -424,7 +424,7 @@
 
       #v(1em)
 
-      == Resolution
+      === Resolution
 
       #v(1em)
 
