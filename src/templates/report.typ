@@ -25,6 +25,8 @@
   link(url, underline(text(fill: rgb("#007bff"), content)))
 }
 
+#let repository = sys.inputs.at("repository", default: "GitHub remote")
+
 #let create_table = (tuples) => {
   table(
     columns: 1,
@@ -53,9 +55,9 @@
   client: "",
   title: "",
   authors: (),
-  date: none,
+  date: datetime.today().display("[day] [month repr:long] [year]"),
   audited_files: (),
-  repo: "",
+  repo: repository,
   is_draft: true,
   body,
 ) = {
