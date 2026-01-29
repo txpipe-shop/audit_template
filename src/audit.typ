@@ -9,8 +9,7 @@
 #show: report.with(
   client: "XXXXX",
   title: "XXXXX",
-  repo: "XXXXX",
-  date: "XXXXX",
+  // date: "XXXXX", // Default: Today.
   audited_files: audited_files,
 )
 
