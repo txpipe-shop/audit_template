@@ -684,7 +684,17 @@
   block(width: 100%, height: size.height)[
     #set align(center)
     #diagram
-    #if notes != none [ *Note*: #notes ]
+    #set align(left)
+    #if notes != none [
+      #box(
+        fill: rgb("f0f0f0"),
+        stroke: 0.5pt + black,
+        inset: 8pt,
+      )[
+        #set text(size: 9pt)
+        *Notes*: #notes
+      ]
+    ]
   ]
 }
 
