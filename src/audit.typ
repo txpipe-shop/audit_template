@@ -41,6 +41,60 @@ The final state of the files for the purposes of this report is considered to be
 
 #pagebreak()
 
+= Specification
+
+== UTxOs
+
+== Assets
+
+== Transactions
+
+=== Example transaction
+
+#let example_transaction = vanilla_transaction(
+  "Example Tx",
+  mint: (
+    "Example NFT": (qty: 0, variables: ("1": 1)),
+  ),
+  inputs: (
+    (
+      name: "Input 1",
+      address: "example_addr",
+      value: (
+        "ADA": "N",
+      ),
+      datum: (
+        field1: [Type],
+        field2: "Value",
+      ),
+    ),
+  ),
+  outputs: (
+    (
+      name: "Output 1",
+      address: "example_addr",
+      value: (
+        "ADA": "N",
+      ),
+      datum: (
+        field1: [Type],
+        field2: "Value",
+      ),
+    ),
+  ),
+)
+
+#figure(
+  example_transaction,
+  caption: [
+    Example transaction
+  ],
+  gap: 1.5em
+)
+
+
+#pagebreak()
+
 = Findings
 #v(1em)
 #findings(items: (
