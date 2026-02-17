@@ -653,7 +653,9 @@
     #if "upper" in validRange [$<=$ #validRange.upper]
   ] else []
 
-  let boxHeight = 100pt + if certificates.len() > 0 { 32pt * certificates.len() } else { 0pt } + if signatures.len() > 0 { 32pt * signatures.len() } else { 0pt } + if withdraws.len() > 0 { 40pt * withdraws.len() } else { 0pt }
+  let boxHeight = {
+    100pt + 32pt * (mint.len() + certificates.len() + signatures.len()) + 40pt * withdraws.len()
+  }
 
   let transaction = [
       #set align(center)
