@@ -551,7 +551,7 @@
   existing
 }
 
-#let vanilla_transaction(name, inputs: (), outputs: (), signatures: (), certificates: (), withdraws: (), mint: (:), validRange: none, notes: none) = context {
+#let vanilla_transaction(name, inputs: (), outputs: (), signatures: (), certificates: (), withdrawals: (), mint: (:), validRange: none, notes: none) = context {
   let inputHeightEstimate = inputs.fold(0pt, (sum, input) => sum + tx_out_height_estimate(input))
   let inputHeight = 0em
   let inputs = [
@@ -640,10 +640,10 @@
       - #certificate
     ]
   ] else []
-  let withs = if withdraws.len() > 0 [
-    *Withdraws: *
-    #for withdraw in withdraws [
-      - #withdraw
+  let withs = if withdrawals.len() > 0 [
+    *Withdrawals:*
+    #for withdrawal in withdrawals [
+      - #withdrawal
     ]
   ] else []
   let valid_range = if validRange != none [
@@ -654,7 +654,7 @@
   ] else []
 
   let boxHeight = {
-    100pt + 32pt * (mint.len() + certificates.len() + signatures.len()) + 40pt * withdraws.len()
+    100pt + 32pt * (mint.len() + certificates.len() + signatures.len()) + 40pt * withdrawals.len()
   }
 
   let transaction = [
