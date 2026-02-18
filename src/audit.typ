@@ -49,6 +49,11 @@ The final state of the files for the purposes of this report is considered to be
 
 == Transactions
 
+The purpose of the transaction diagrams that follow is to outline the key
+aspects of each operation in the protocol.
+To provide a clearer presentation, we omit details such as the minimum ADA
+required in each UTxO, transaction fees, the sources of that ADA, etc.
+
 === Example transaction
 
 #let example_transaction = vanilla_transaction(
