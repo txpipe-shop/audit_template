@@ -683,12 +683,13 @@
     outputs
   )
   let size = measure(diagram)
-  block(width: 100%, height: size.height)[
+  block(width: 100%)[
     #set align(center)
     #diagram
     #set align(left)
     #if notes != none [
       #box(
+        width: 100%,
         fill: rgb("f0f0f0"),
         stroke: 0.5pt + black,
         inset: 8pt,

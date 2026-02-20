@@ -45,6 +45,18 @@ The final state of the files for the purposes of this report is considered to be
 
 == UTxOs
 
+=== Example UTxO
+
+_Briefly explain here the purpose of the transaction._
+
+- Address:
+  - Parameters: ...
+- Value:
+  - ADA:
+  - Asset A: _(policy and token name)_
+  - ...
+- Datum: _(datum type and fields)_
+
 == Assets
 
 == Transactions
@@ -55,6 +67,8 @@ To provide a clearer presentation, we omit details such as the minimum ADA
 required in each UTxO, transaction fees, the sources of that ADA, etc.
 
 === Example transaction
+
+_Briefly explain here the purpose of the transaction._
 
 #let example_transaction = vanilla_transaction(
   "Example Tx",
@@ -87,14 +101,17 @@ required in each UTxO, transaction fees, the sources of that ADA, etc.
       ),
     ),
   ),
+  notes: [
+    - note 1
+    - note 2
+  ],
 )
 
 #figure(
   example_transaction,
   caption: [
     Example transaction
-  ],
-  gap: 1.5em
+  ]
 )
 
 
