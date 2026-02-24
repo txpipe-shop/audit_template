@@ -45,9 +45,16 @@ The final state of the files for the purposes of this report is considered to be
 
 == UTxOs
 
-=== Example UTxO
+// - Use singular "UTxO" for singletons: UTxO types that are designed to have
+//   only one instance sitting at an address.
+//   Example: "Protocol Settings UTxO"
+// - Use plural "UTxOs" for UTxO types that are designed to have multiple
+//   instances.
+//   Example: "Order UTxOs"
 
-_Briefly explain here the purpose of the transaction._
+=== Example UTxO/s
+
+_Briefly explain here the purpose of the UTxO/s._
 
 - Address:
   - Parameters: ...
