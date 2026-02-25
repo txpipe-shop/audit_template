@@ -594,31 +594,22 @@
   // Collapse down the `mint` array
   let display_mint = (:)
   for (k, v) in mint {
-    let has_variables = v.variables.len() > 0 and v.variables.values().any(v => v != 0)
-    if v.qty == 0 and not has_variables {
-      continue
-    }
     let display = []
-    if v.qty != 0 {
-      display = if v.qty > 0 { [\+] } + [#v.qty]
-    }
-    let vs = v.variables.pairs().sorted(key: ((k,v)) => -v)
-    if vs.len() > 0 {
-      for (k, v) in vs {
-        if v == 0 {
-          continue
-        } else if v > 0 {
-          display += [ \+ ]
-        } else if v < 0 {
-          display += [ \- ]
-        }
-        if v > 1 or v < -1 {
-          display += [#calc.abs(v)]
-        }
-        display += [*#k*]
+    if type(v) == int {
+      // the provided value is an integer
+      if v == 0 {
+        continue
+      } else if v > 0 {
+        display += [ \+ ]
+      } else if v < 0 {
+        display += [ \- ]
       }
+      display += [#calc.abs(v)]
+    } else {
+      // the provided value can be a letter or variable name
+      display += [\+ #v]
     }
-    display += [ *#raw(k)*]
+    display += [ #raw(k)]
     display_mint.insert(k, display)
   }
 

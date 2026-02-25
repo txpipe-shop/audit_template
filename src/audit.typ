@@ -80,7 +80,10 @@ _Briefly explain here the purpose of the transaction._
 #let example_transaction = vanilla_transaction(
   "Example Tx",
   mint: (
-    "Example NFT": (qty: 0, variables: ("1": 1)),
+    "Example1 NFT": 1,
+    "Example2 NFT": -1,
+    "Example3 FT": "N",
+    "Example4 FT": [_N_],
   ),
   inputs: (
     (
