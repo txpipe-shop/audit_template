@@ -88,9 +88,21 @@ _Briefly explain here the purpose of the transaction._
   inputs: (
     (
       name: "Input 1",
-      address: "example_addr",
+      address: "example_addr1",
       value: (
         "ADA": "N",
+      ),
+      datum: (
+        field1: [Type],
+        field2: "Value",
+      ),
+    ),
+    (
+      reference: true,
+      name: "Ref. Input 1",
+      address: "example_addr2",
+      value: (
+        "Ref. Input NFT": 1,
       ),
       datum: (
         field1: [Type],
