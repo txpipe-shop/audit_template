@@ -34,6 +34,7 @@
 Below is a list of all audited files in this report.
 Any files *not* listed here were *not* audited.
 The final state of the files for the purposes of this report is considered to be commit `XXXX`.
+// i.e., this is the commit hash resulting from all resolutions, if any.
 
 #files_audited(
   items: audited_files.map(t => t.first())
@@ -150,7 +151,10 @@ _Briefly explain here the purpose of the transaction._
     severity: "Critical",  // Critical (0), Major (1), Minor (2), Info (3)
     status: "Resolved",    // Resolved, Acknowledged, Identified
     category: "Bug",       // Bug, Redundancy, Optimization, Robustness, etc.
-    commit: "",
+    commit: "",            // commit hash at which it was arranged to perform
+                           // the audit. If the codebase is updated, a new
+                           // milestone commit hash must be agreed upon. Later
+                           // findings use the new commit hash.
     description: [
       XXXXXXX
     ],
