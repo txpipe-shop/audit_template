@@ -607,7 +607,11 @@
       display += [#calc.abs(v)]
     } else {
       // the provided value can be a letter or variable name
+      if type(v) == str and v.starts-with("-") {
+        display += [\- #v.slice(1)]
+      } else {
       display += [\+ #v]
+      }
     }
     display += [ #raw(k)]
     display_mint.insert(k, display)
