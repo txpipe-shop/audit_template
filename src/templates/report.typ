@@ -446,14 +446,17 @@
   return (address + value + datum) * 8pt
 }
 
+// show datum field
 #let datum_field(indent, k, val) = [
-  #if val == "" [
+  #if val == "" or val == [] [
+    // no value or type
     #h(indent)\+ #raw(k)
   ] else [
-    #h(indent)\+ #raw(k):
-    #if type(val) == content { val }
-    #if type(val) == str and val != "" {repr(val)}
-    #if type(val) == int {repr(val)}
+    // value or type
+    #h(indent)\+ #raw(k)
+    #if type(val) == content [ \= #val ]  // value
+    #if type(val) == str [ : #val ]  // type
+    #if type(val) == int [ \= #val ]  // value
     #if type(val) == array [
       #stack(dir: ttb, spacing: 0.4em,
         for item in val [

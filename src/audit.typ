@@ -86,6 +86,10 @@ _Briefly explain here the purpose of the transaction._
     "Example3 FT": "N",
     "Example4 FT": [_N_],
   ),
+  withdrawals: (
+    "withdrawal_addr1",
+    "withdrawal_addr2",
+  ),
   inputs: (
     (
       name: "Input 1",
@@ -94,8 +98,16 @@ _Briefly explain here the purpose of the transaction._
         "ADA": "N",
       ),
       datum: (
-        field1: [Type],
-        field2: "Value",
+        field0: "",  // no value or type
+        field1: "Type",
+        field2: [*value*],
+        field3: 42,  // integer value
+        field4: [],  // also no value or type
+        field5: (
+          subfield1: "SubType",
+          subfield2: [*subvalue*],
+        ),
+        "...": [],  // ellipsis if needed
       ),
     ),
     (
@@ -106,8 +118,8 @@ _Briefly explain here the purpose of the transaction._
         "Ref. Input NFT": 1,
       ),
       datum: (
-        field1: [Type],
-        field2: "Value",
+        field1: "Type",
+        field2: [*value*],
       ),
     ),
   ),
@@ -119,8 +131,9 @@ _Briefly explain here the purpose of the transaction._
         "ADA": "N",
       ),
       datum: (
-        field1: [Type],
-        field2: "Value",
+        field0: "",  // no value or type
+        field1: "Type",
+        field2: [*value*],
       ),
     ),
   ),
