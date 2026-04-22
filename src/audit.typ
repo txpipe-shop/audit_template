@@ -7,9 +7,9 @@
 )
 
 #show: report.with(
-  client: "XXXXX",
-  title: "XXXXX",
-  // date: "XXXXX", // Default: Today.
+  client: "[CLIENT]",
+  title: "[TITLE]",
+  // date: "[DATE]", // Default: Today.
   audited_files: audited_files,
 )
 
@@ -157,8 +157,8 @@ _Briefly explain here the purpose of the transaction._
 #v(1em)
 #findings(items: (
   (
-    id: [XXX],             // first digit corresponds to severity (see below)
-    title: [XXXXXXX],      // diagnosis: write it as a fact about the 
+    id: [XXX-NNN],         // first digit corresponds to severity (see below)
+    title: [Finding title],// diagnosis: write it as a fact about the
                            // current version of the code. Do not write it
                            // as a recommendation
     severity: "Critical",  // Critical (0), Major (1), Minor (2), Info (3)
