@@ -75,7 +75,7 @@
   let title = client + " - " + title
   set document(author: authors, title: title)
   set text(font: "Libertinus Serif", lang: "en")
-  set heading(numbering: "1.a -")
+  set heading(numbering: "1.1.a -")
 
   // Title page.
   // The page can contain a logo if you pass one with `logo: "logo.png"`.
