@@ -78,6 +78,8 @@ required in each UTxO, transaction fees, the sources of that ADA, etc.
 
 _Briefly explain here the purpose of the transaction._
 
+See @fig:example for an example transaction diagram.
+
 #let example_transaction = vanilla_transaction(
   "Example Tx",
   mint: (
@@ -148,7 +150,7 @@ _Briefly explain here the purpose of the transaction._
   caption: [
     Example transaction
   ]
-)
+) <fig:example>
 
 
 #pagebreak()
