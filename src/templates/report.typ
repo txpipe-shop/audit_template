@@ -466,10 +466,8 @@
     ]
     #if type(val) == dictionary [
       #v(-0.7em)
-      #stack(dir: ttb, spacing: 0em,
-        for (k, v) in val.pairs() [
-          #datum_field(indent + 1.2em, k, v) \
-        ]
+      #stack(dir: ttb, spacing: 0.4em,
+        ..val.pairs().map(((k, v)) => datum_field(indent + 1.2em, k, v))
       )
     ]
   ]
