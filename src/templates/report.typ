@@ -1,3 +1,7 @@
+// helpers for auto-numbered finding IDs
+#let _severity_digit(sev) = if sev == "Critical" { "0" } else if sev == "Major" { "1" } else if sev == "Minor" { "2" } else { "3" }
+#let _pad2(n) = if n < 10 { "0" + str(n) } else { str(n) }
+
 // severity colors
 #let critical = rgb("#EB6F92")
 #let major = rgb("#EA9A97")
@@ -305,7 +309,16 @@
 
 #let finding_titles = ("Category", "Commit", "Severity", "Status")
 
-#let findings(items: ()) = {
+#let findings(items: (), tag: "") = {
+  let counts = ("Critical": 0, "Major": 0, "Minor": 0, "Info": 0)
+  let numbered = ()
+  for item in items {
+    let n = counts.at(item.severity) + 1
+    counts.insert(item.severity, n)
+    numbered.push(item + (id: tag + "-" + _severity_digit(item.severity) + _pad2(n)))
+  }
+  let items = numbered.sorted(key: item => _severity_digit(item.severity))
+
   grid(
     columns: (1fr, 46%, 1fr, 1fr),
     gutter: 1pt,

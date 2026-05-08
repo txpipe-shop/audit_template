@@ -157,13 +157,16 @@ See @fig:example for an example transaction diagram.
 
 = Findings
 #v(1em)
-#findings(items: (
-  (
-    id: [XXX-NNN],         // first digit corresponds to severity (see below)
+#findings(tag: "XXX", items: ( // tag: client identifier (e.g. "IND", "BUT")
+                               // IDs are generated as TAG-XNN, where X is
+                               // the severity digit and NN is a per-severity counter.
+                               // Findings are displayed sorted by severity.
+(
     title: [Finding title],// diagnosis: write it as a fact about the
                            // current version of the code. Do not write it
                            // as a recommendation
     severity: "Critical",  // Critical (0), Major (1), Minor (2), Info (3)
+                           // determines the X digit in the finding ID
     status: "Resolved",    // Resolved, Acknowledged, Identified
     category: "Bug",       // Bug, Redundancy, Optimization, Robustness, etc.
     commit: "",            // commit hash at which it was arranged to perform
