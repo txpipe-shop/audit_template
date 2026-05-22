@@ -1,7 +1,7 @@
 #import "templates/report.typ": *
 
-// the following shell command can be used to build this table:
-// find . -type f -name "*.ak" -exec sh -c 'for file; do sha256sum "$file"; done' sh {} + | awk '{printf "( \"%s\", \"%s\" ),\n", $2, $1}'
+// The following shell command can be used to build this table, skipping the aiken lib files and any files with test in its name:
+// find . -type f -name "*.ak" ! -path "./build/*" ! -name "*test*" -exec sh -c 'for file; do sha256sum "$file"; done' sh {} + | sort -k2 | awk '{printf "( \"%s\", \"%s\" ),\n", $2, $1}'
 #let audited_files = (
   ("path/to/file", "hash"),
 )
