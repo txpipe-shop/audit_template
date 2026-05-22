@@ -663,7 +663,7 @@
   ] else []
 
   let boxHeight = {
-    100pt + 32pt * (mint.len() + certificates.len() + signatures.len()) + 40pt * withdrawals.len()
+    100pt + 32pt * (mint.len() + certificates.len() + signatures.len()) + 40pt * withdrawals.len() + (if validRange != none { 60pt } else { 0pt })
   }
 
   let transaction = [
