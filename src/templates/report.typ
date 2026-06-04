@@ -68,7 +68,7 @@
 
 
   let watermark = if is_draft {
-    [#rotate(-45deg)[#text(fill: rgb(127,127,127,20%), size:20em, "DRAFT")]]
+    [#image("img/draft.svg")]
   } else {
     []
   }
