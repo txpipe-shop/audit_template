@@ -1,3 +1,5 @@
+#import "@preview/one-liner:0.3.0": shrink-to-width
+
 // helpers for auto-numbered finding IDs
 #let _severity_digit(sev) = if sev == "Critical" { "0" } else if sev == "Major" { "1" } else if sev == "Minor" { "2" } else { "3" }
 #let _pad2(n) = if n < 10 { "0" + str(n) } else { str(n) }
@@ -361,7 +363,7 @@
             }
           )[
             #set align(horizon + center)
-            #row.status
+            #shrink-to-width(row.status)
           ]
         )
       )
