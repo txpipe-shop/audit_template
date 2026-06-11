@@ -668,6 +668,8 @@
     100pt + 32pt * (mint.len() + certificates.len() + signatures.len()) + 40pt * withdrawals.len() + (if validRange != none { 60pt } else { 0pt })
   }
 
+  let items = (mints, sigs, certs, withs, valid_range,)
+
   let transaction = [
       #set align(center)
       #rect(
@@ -678,11 +680,7 @@
           #v(1em)
           #set align(left)
           #stack(dir: ttb, spacing: 1em,
-            mints,
-            sigs,
-            certs,
-            withs,
-            valid_range,
+            ..items.filter(it => it != [])
           )
         ]
       )
