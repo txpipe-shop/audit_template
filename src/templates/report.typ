@@ -170,10 +170,10 @@
 
     === Severity
     #v(1em)
-    
+
     #grid(
       columns: (20%, 80%),
-      gutter: 1pt, 
+      gutter: 1pt,
       cell(fill: table_header, height: auto)[
         #set align(horizon + center)
         *Severity*
@@ -200,7 +200,6 @@
         Major issues highlight exploits, bugs, or other vulnerabilities that cause unexpected
         transaction failures or may be used to trick general users of the dApp. dApps with Major issues
         may still be functional.
-        
       ],
       cell(fill: minor)[
         #set align(horizon + center)
@@ -217,18 +216,18 @@
       ],
       cell()[
         #set align(horizon)
-        Info are not issues. These are just pieces of information that are beneficial to the dApp creator. These are not necessarily acted on or have a resolution, they are logged for the completeness of the audit. 
+        Info are not issues. These are just pieces of information that are beneficial to the dApp creator. These are not necessarily acted on or have a resolution, they are logged for the completeness of the audit.
       ],
     )
 
     #v(1em)
-    
+
     === Status
     #v(1em)
 
     #grid(
       columns: (20%, 80%),
-      gutter: 1pt, 
+      gutter: 1pt,
       cell(fill: table_header, height: auto)[
         #set align(horizon + center)
         *Status*
@@ -237,7 +236,7 @@
         #set align(horizon + center)
         *Description*
       ],
-      
+
       cell(fill: resolved)[
         #set align(horizon + center)
         Resolved
@@ -257,7 +256,7 @@
       ],
       cell(fill: identified)[
         #set align(horizon + center)
-        Identified 
+        Identified
       ],
       cell()[
         #set align(horizon)
@@ -267,22 +266,22 @@
     )
 
     #pagebreak()
-    
+
     == Revisions
     #v(1em)
-    
+
     This report was created using a git based workflow. All changes are tracked in a github repo and the report is produced
     using #tx_link("https://typst.app")[typst]. The report source is available #tx_link(repo)[here]. All versions with downloadable PDFs can be found on the #tx_link(repo + "/releases")[releases page].
 
     #v(1em)
-    
+
     == About Us
     #v(1em)
 
     TxPipe is a blockchain technology company responsible for many projects that are now a critical part
-    of the Cardano ecosystem. Our team built #tx_link("https://github.com/oura")[Oura], #tx_link("https://github.com/txpipe/scrolls")[Scrolls], #tx_link("https://github.com/txpipe/pallas")[Pallas], #tx_link("https://demeter.run")[Demeter], and we're the original home of #tx_link("https://aiken-lang.org")[Aiken]. We're passionate
+    of the Cardano ecosystem. Our team built #tx_link("https://github.com/txpipe/oura")[Oura], #tx_link("https://github.com/txpipe/scrolls")[Scrolls], #tx_link("https://github.com/txpipe/pallas")[Pallas], #tx_link("https://demeter.run")[Demeter], and we're the original home of #tx_link("https://aiken-lang.org")[Aiken]. We're passionate
     about making tools that make it easier to build on Cardano. We believe that blockchain adoption can be accelerated by improving developer experience. We develop blockchain tools, leveraging the open-source community and its methodologies.
-    
+
     #v(1em)
 
     === Links
@@ -292,7 +291,7 @@
     - #tx_link("https://txpipe.io")[Website]
     - #tx_link("hello@txpipe.io")[Email]
     - #tx_link("https://twitter.com/txpipe_tools")[Twitter]
-    
+
   ]
 }
 
