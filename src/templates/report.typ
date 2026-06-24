@@ -333,7 +333,7 @@
         row => (
           cell()[
             #set align(horizon + center)
-            *#row.id*
+            #link(label(row.id))[*#row.id*]
           ],
           cell()[
             #set align(horizon)
@@ -375,6 +375,7 @@
   for finding in items {
     [
       == #finding.id #finding.title
+      #label(finding.id)
 
       #v(1em)
 

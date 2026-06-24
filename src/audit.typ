@@ -78,6 +78,7 @@ required in each UTxO, transaction fees, the sources of that ADA, etc.
 === Example transaction
 
 _Briefly explain here the purpose of the transaction._
+_You can use @XXX-001 to reference findings_
 
 See @fig:example for an example transaction diagram.
 
