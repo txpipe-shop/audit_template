@@ -379,7 +379,7 @@
       #v(1em)
 
       #grid(
-        columns: (1fr, 48%, 1fr, 1fr),
+        columns: (1.3fr, 48%, 1fr, 1.4fr),
         gutter: 1pt,
         ..finding_titles.map(t => cell(fill: rgb("#E5E5E5"), height: auto)[
           #set align(horizon + center)
