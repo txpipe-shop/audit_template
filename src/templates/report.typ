@@ -371,6 +371,7 @@
 
   pagebreak()
 
+  show link: underline
   for finding in items {
     [
       == #finding.id #finding.title
